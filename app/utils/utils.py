@@ -33,17 +33,14 @@ initialize_variables()
 
 # classify image will get the cropped faces from the image and then convert it to wavelet,
 # resize it and make a hot a vector from it to pass to the model
+
 def classify(img_base64, model_name, img_path=None):
     # load the corresponding classes for a given model
     with open(__path + model_name + ".json", "r") as f:
         class_name_to_number = json.load(f)
         class_number_to_name = {k: v for v, k in class_name_to_number.items()}
 
-    # load the corresponding classes for a given deep learning model
-    # with open(__path + model_name + "_dl.json", "r") as f:
-    #    class_name_to_number_dl = json.load(f)
-    #    class_number_to_name_dl = {k: v for v, k in class_name_to_number_dl.items()}
-
+   
     # load the good model
     model = None
     if model is None:
@@ -53,12 +50,6 @@ def classify(img_base64, model_name, img_path=None):
             model = joblib.load(f)
         print("Loading saved model done !!!")
 
-    # load good model for deep learning
-    # model_dl = None
-    # model_dl = load_model(
-    #     __path + "deep_learning\\" + model_name + "best_model" + ".h5"
-    # )
-    # print("Loading deep learning model done !!!")
 
     cropped_faces = get_cropped_image_if_2_eyes_exist(img_path, img_base64)
     result = []
@@ -85,21 +76,6 @@ def classify(img_base64, model_name, img_path=None):
                 "class_dictionary": class_name_to_number,
             }
         )
-        # nn_face = preprocess_image_for_neural_network(face)
-        # dl_pred = model_dl.predict(nn_face)
-
-        # result_dl.append(
-        #     {
-        #         "class": process_neural_network_result(
-        #             dl_pred, class_number_to_name_dl
-        #         )["class_neural_network"],
-        #         "class_probability": np.around(
-        #             model_dl.predict(nn_face) * 100, 2
-        #         ).tolist()[0],
-        #         "class_dictionary": class_name_to_number_dl,
-        #     }
-        # )
-    # result_combined = {"svm": result, "dl": result_dl}
     result_combined = {"svm": result}
     return result_combined
 
@@ -179,24 +155,3 @@ def preprocess_image_for_neural_network(img_array):
     img_array = preprocess_input(img_array)
 
     return img_array
-
-
-def predict_neural_network(img_array, neural_network_model):
-    # Prétraitez l'image si nécessaire (ajustez en fonction de vos besoins)
-    preprocessed_img = preprocess_image_for_neural_network(img_array)
-
-    # Faites la prédiction avec le modèle de réseau de neurones
-    neural_network_result = neural_network_model.predict(preprocessed_img)
-
-    # Retournez les résultats (ajustez en fonction de vos besoins)
-    return neural_network_result
-
-
-def process_neural_network_result(neural_network_result, class_number_to_name_dl):
-    class_index = np.argmax(neural_network_result)
-    class_name = class_number_to_name_dl[class_index]
-    probability = neural_network_result[0][class_index]
-    return {
-        "class_neural_network": class_name,
-        "class_probability_neural_network": probability,
-    }
