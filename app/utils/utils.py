@@ -40,7 +40,7 @@ def classify(img_base64, model_name, img_path=None):
         class_name_to_number = json.load(f)
         class_number_to_name = {k: v for v, k in class_name_to_number.items()}
 
-   
+   print(model_name)
     # load the good model
     model = None
     if model is None:
