@@ -7,9 +7,10 @@ import json
 import matplotlib
 from matplotlib import pyplot as plt
 import pywt
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.inception_v3 import preprocess_input
+
+# from tensorflow.keras.models import load_model
+# from tensorflow.keras.preprocessing import image
+# from tensorflow.keras.applications.inception_v3 import preprocess_input
 
 __face_cascade = None
 __eye_cascade = None
