@@ -25,7 +25,7 @@ def initialize_variables():
     )
     __eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
     # set the path
-    __path = os.getcwd() + "\\models\\"
+    __path = os.getcwd() + "/models/"
 
 
 initialize_variables()
@@ -48,7 +48,7 @@ def classify(img_base64, model_name, img_path=None):
     model = None
     if model is None:
         with open(
-            __path + "machine_learning" + "\\svm_" + model_name + ".pkl", "rb"
+            __path + "machine_learning" + "/svm_" + model_name + ".pkl", "rb"
         ) as f:
             model = joblib.load(f)
         print("Loading saved model done !!!")
