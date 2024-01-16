@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block title %}Football{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <h2 class="display-4 text-center">Catégorie Football </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col card-wrapper" data-player="andre_onana">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/onana.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">ONANA André</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--div class="col card-wrapper" data-player="samuel_etoo">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/etoo.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">ETOO Samuel</h4>
+                    </p>
+                </div>
+            </div>
+        </div-->
+        <!--div class="col card-wrapper" data-player="gael_enganamouit">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/enganamouit.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">ENGANAMOUIT Gael</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col card-wrapper" data-player="maxime_choupo">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/choupo.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">CHOUPO Maxime</h4>
+                    </p>
+                </div>
+            </div>
+        </div-->
+        <div class="col card-wrapper" data-player="ajara_nchout">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/ajara.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">NCHOUT Ajara</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <form class="dropzone" id="dropzone">
+                        <div class="dz-message needsclick">
+                            <img src="./images/upload.png" width="50vw" height="50vw"><br>
+                            <span class="note needsclick">Cliquez ici ou déposez les fichiers directement</span>
+                        </div>
+                        <!-- Ajout d'un champ de type hidden pour envoyer une chaîne de caractères -->
+                        <input type="hidden" name="model_name" id="model_name" value="football">
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-3 mx-auto">
+                    <button id="submitBtn" type="button" class="btn btn-success">Prédire</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 error" id="error">
+            <p>Impossible de classifier l'image. Les classificateurs n'ont pas pu détecter correctement le visage et les deux yeux.</p>
+        </div>
+
+        <div class="col-sm-4" id="resultHolder">
+        </div>
+        <div class="col-sm-4" id="divClassTable">
+            <table id="classTable"> 
+                <tr>
+                    <th>Joueur (se)</th>
+                    <th>Probablité (%) (SVM)</th>
+                    <!--th>Probablité (%) (CNN)</!--th-->
+                </tr>
+                <tr>
+                    <td>ONANA ANDRÉ</td>
+                    <td id="svm_score_andre_onana"></td>
+                    <td id="dl_score_andre_onana"></td>
+                </tr>
+                <!--tr>
+                    <td>ETOO Samuel</td>
+                    <td id="svm_score_samuel_etoo"></td>
+                    <td id="dl_score_samuel_etoo"></td>
+                </!--tr>  
+                <tr>
+                    <td>ENGANAMOUIT Gael</td>
+                    <td id="svm_score_gael_enganamouit"></td>
+                    <td id="dl_score_gael_enganamouit"></td>
+                </tr>
+                <tr-->
+                    <td>CHOUPO Maxime</td>
+                    <td id="svm_score_maxime_choupo"></td>
+                    <td id="dl_score_maxime_choupo"></td>
+                </tr-->
+                <tr>
+                    <td>NCHOUT Ajara</td>
+                    <td id="svm_score_ajara_nchout"></td>
+                    <!--td id="dl_score_ajara_nchout"></!--td-->
+                </tr>                
+            </table>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

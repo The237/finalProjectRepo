@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="{{url_for('static',filename='css/main.css')}}">
+        <link rel="stylesheet"
+            href="{{url_for('static',filename='css/dropzone.min.css')}}">
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+        <link rel="icon"
+            href="{{ url_for('static', filename='images/facerec.ico') }}"
+            type="image/x-icon">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <a class="navbar-brand" href="/"><i class="fas fa-home"></i>
+                Accueil</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown nav-item-large">
+                        <a class="nav-link dropdown-toggle" href="#"
+                            id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="fas fa-futbol"></i> Sport
+                        </a>
+                        <div class="dropdown-menu"
+                            aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/football"><i
+                                    class="fas fa-futbol"></i> Football</a>
+                            <a class="dropdown-item" href="/athletisme"><i
+                                    class="fas fa-running"></i> Athlétisme</a>
+                            <a class="dropdown-item" href="/sport_combat"><i
+                                    class="fas fa-fist-raised"></i> Sport de
+                                Combat</a>
+                            <a class="dropdown-item"
+                                href="/statistiques_sport"><i
+                                    class="fas fa-chart-bar"></i> Statistiques
+                                de classification</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown nav-item-large">
+                        <a class="nav-link dropdown-toggle" href="#"
+                            id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="fas fa-book"></i> Culture
+                        </a>
+                        <div class="dropdown-menu"
+                            aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/education"><i
+                                    class="fas fa-book"></i> Education</a>
+                            <a class="dropdown-item" href="/cinema"><i
+                                    class="fas fa-film"></i> Cinéma</a>
+                            <a class="dropdown-item" href="/fashion"><i
+                                    class="fas fa-tshirt"></i> Fashion</a>
+                            <a class="dropdown-item"
+                                href="/statistiques_educ"><i
+                                    class="fas fa-chart-bar"></i> Statistiques
+                                de classification</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown nav-item-large">
+                        <a class="nav-link dropdown-toggle" href="#"
+                            id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="fas fa-book"></i> Informatique
+                        </a>
+                        <div class="dropdown-menu"
+                            aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/informatique"><i
+                                    class="fas fa-book"></i> Informatique</a>
+                            <a class="dropdown-item"
+                                href="/statistiques_cs"><i
+                                    class="fas fa-chart-bar"></i> Statistiques
+                                de classification</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer class="footer mt-auto py-3 bg-dark mt-4">
+            <div class="container text-center">
+                <span class="text-white">© 2023 Reconnaissance Faciale des
+                    Stars</span>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+            src="{{url_for('static',filename='js/dropzone.min.js' )}}"></script>
+        <script src="{{url_for('static',filename='js/app.js' )}}"></script>
+    </body>
+
+</html>

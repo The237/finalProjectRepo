@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% block title %}Education{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <h2 class="display-4 text-center">Catégorie Education </h2>
+        </div>
+    </div>
+    <div class="row">
+        <!--div class="col card-wrapper" data-player="biwole">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/biwole.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Arsene Tema Biwole</h4>
+                    </p>
+                </div>
+            </div>
+        </div-->
+        <div class="col card-wrapper" data-player="beyala">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/beyala.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Calixthe Beyala</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col card-wrapper" data-player="amadou_amal">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/amadou_amal.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Djaili Amadou Amal</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--div class="col card-wrapper" data-player="fame_ndongo">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/fame_ndongo.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Jacques FAME NDONGO</h4>
+                    </p>
+                </div>
+            </div>
+        </div-->
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <form action="/file-upload" class="dropzone" id="dropzone">
+                        <div class="dz-message needsclick">
+                            <img src="./images/upload.png" width="50vw" height="50vw"><br>
+                            <span class="note needsclick">Cliquez ici ou déposez les fichiers directement</span>
+                        </div>
+                    </form>
+                    <!-- Ajout d'un champ de type hidden pour envoyer une chaîne de caractères -->
+                    <input type="hidden" name="model_name" id="model_name" value="education">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-3 mx-auto">
+                    <button id="submitBtn" type="button" class="btn btn-success">Prédire</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8 error" id="error">
+            <p>Impossible de classifier l'image. Les classificateurs n'ont pas pu détecter correctement le visage et les deux yeux.</p>
+        </div>
+
+        <div class="col-sm-4" id="resultHolder">
+        </div>
+        <div class="col-sm-4" id="divClassTable">
+            <table id="classTable">
+                <tr>
+                    <th>Personalité</th>
+                    <th>Probablité (%) (SVM)</th>
+                    <!--th>Probablité (%) (CNN)</!--th-->
+                </tr>
+                <!--tr>
+                    <td>Arsene Biwole</td>
+                    <td id="svm_score_biwole"></td>
+                    <td id="dl_score_biwole"></td>
+                </!--tr-->
+                <tr>
+                    <td>Calixthe Beyala</td>
+                    <td id="svm_score_beyala"></td>
+                    <td id="dl_score_beyala"></td>
+                </tr>
+                <tr>
+                    <td>Djaili Amadou Amal</td>
+                    <td id="svm_score_amadou_amal"></td>
+                    <td id="dl_score_amadou_amal"></td>
+                </tr>
+                <!--tr>
+                    <td>Jacques Fame Ndongo</td>
+                    <td id="svm_score_fame_ndongo"></td>
+                    <td id="dl_score_fame_ndongo"></td>
+                </!--tr-->
+            </table>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

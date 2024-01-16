@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% block title %}Fashion{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <h2 class="display-4 text-center">Catégorie Fashion </h2>
+        </div>
+    </div>
+    <div class="row">
+        <!--div class="col card-wrapper" data-player="ayissi">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/ayissi.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Imane Ayissi</h4>
+                    </p>
+                </div>
+            </div>
+        </div-->
+        <div class="col card-wrapper" data-player="edima">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/edima.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Samantha Edima</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--div class="col card-wrapper" data-player="graobe">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/graobe.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Marie noelle Graobe</h4>
+                    </p>
+                </div>
+            </div>
+        </div-->
+        <div class="col card-wrapper" data-player="ayena">
+            <div class="card border-0">
+                <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                    <img class="w-100 h-100" src="{{url_for('static',filename='images/ayena.jpg')}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body text-center mt-4">
+                    <h4 class="text-uppercase card-title">Valerie Ayena</h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <form action="/file-upload" class="dropzone" id="dropzone">
+                        <div class="dz-message needsclick">
+                            <img src="./images/upload.png" width="50vw" height="50vw"><br>
+                            <span class="note needsclick">Cliquez ici ou déposez les fichiers directement</span>
+                        </div>
+                    </form>
+                    <!-- Ajout d'un champ de type hidden pour envoyer une chaîne de caractères -->
+                    <input type="hidden" name="model_name" id="model_name" value="fashion">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-3 mx-auto">
+                    <button id="submitBtn" type="button" class="btn btn-success">Prédire</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8 error" id="error">
+            <p>Impossible de classifier l'image. Les classificateurs n'ont pas pu détecter correctement le visage et les deux yeux.</p>
+        </div>
+
+        <div class="col-sm-4" id="resultHolder">
+        </div>
+        <div class="col-sm-4" id="divClassTable">
+            <table id="classTable">
+                <tr>
+                    <th>Personnalité</th>
+                    <th>Probablité (%) (SVM)</th>
+                    <!--th>Probablité (%) (CNN)</!th-->
+                </tr>
+                <!--tr>
+                    <td>Imane Ayissi</td>
+                    <td id="svm_score_ayissi"></td>
+                    <td id="dl_score_ayissi"></td>
+                </!--tr-->
+                <tr>
+                    <td>Samantha Edima</td>
+                    <td id="svm_score_edima"></td>
+                    <!--td id="dl_score_edima"></!--td-->
+                </tr>
+                <!--tr>
+                    <td>Marie noelle Graobe</td>
+                    <td id="svm_score_graobe"></td>
+                    <td id="dl_score_graobe"></td>
+                </!--tr-->
+                <tr>
+                    <td>Valerie Ayena</td>
+                    <td id="svm_score_ayena"></td>
+                    <!--td id="dl_score_ayena"></!--td-->
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

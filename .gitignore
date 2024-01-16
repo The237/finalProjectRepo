@@ -1,0 +1,9 @@
+# files to ignore
+pdssettingsAWS.txt
+pythonForDSKey.pem
+pythonForDSKeyPrivateKey.ppk
+
+# folder to ignore
+models/ml
+models/machine_learning
+app/static/js/app_bis.js
