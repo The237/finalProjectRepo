@@ -40,9 +40,9 @@ def classify(img_base64, model_name, img_path=None):
         class_number_to_name = {k: v for v, k in class_name_to_number.items()}
 
     # load the corresponding classes for a given deep learning model
-    with open(__path + model_name + "_dl.json", "r") as f:
-        class_name_to_number_dl = json.load(f)
-        class_number_to_name_dl = {k: v for v, k in class_name_to_number_dl.items()}
+    # with open(__path + model_name + "_dl.json", "r") as f:
+    #    class_name_to_number_dl = json.load(f)
+    #    class_number_to_name_dl = {k: v for v, k in class_name_to_number_dl.items()}
 
     # load the good model
     model = None
