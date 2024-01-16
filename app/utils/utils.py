@@ -25,7 +25,7 @@ def initialize_variables():
     )
     __eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
     # set the path
-    __path = os.getcwd() + "/models/"
+    __path = os.getcwd() + "/models/models/"
 
 
 initialize_variables()
